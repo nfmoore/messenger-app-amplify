@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { Avatar, AvatarFallback } from "./ui/avatar";
 import { MessageProps } from "@/types/types";
+import { getFirstLetter } from "@/utils/client-utils";
 
 export const Message = memo(function Message({
   message,
@@ -19,12 +20,7 @@ export const Message = memo(function Message({
     >
       <div className="flex gap-4 items-center">
         <Avatar className="h-10 w-10">
-          <AvatarFallback>
-            {message.sender
-              .split(" ")
-              .map((n) => n[0])
-              .join("")}
-          </AvatarFallback>
+          <AvatarFallback>{getFirstLetter(message.sender)}</AvatarFallback>
         </Avatar>
         <div className="font-bold">{message.sender}</div>
       </div>

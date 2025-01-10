@@ -11,3 +11,9 @@ export async function getUserName() {
 
   return userInfo.tokens?.idToken?.payload.preferred_username;
 }
+
+export const getFirstLetter = (sender: string) =>
+  sender
+    .split(" ")
+    .map((n) => n[0])
+    .join("");

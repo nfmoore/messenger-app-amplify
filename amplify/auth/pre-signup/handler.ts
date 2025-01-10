@@ -8,8 +8,16 @@ import {
 export const handler: PreSignUpTriggerHandler = async (event) => {
   const cognitoClient = new CognitoIdentityProviderClient({});
 
+  if (!event.request.userAttributes["preferred_username"]) {
+    throw new Error("Username is required");
+  }
+
   const lowercaseUsername =
     event.request.userAttributes["preferred_username"].toLowerCase();
+
+  if (lowercaseUsername.includes(" ")) {
+    throw new Error("Username cannot contain spaces");
+  }
 
   const params: ListUsersCommandInput = {
     UserPoolId: event.userPoolId,
@@ -28,10 +36,6 @@ export const handler: PreSignUpTriggerHandler = async (event) => {
 
   if (matchingUser) {
     throw new Error("Username already exists");
-  }
-
-  if (lowercaseUsername.includes(" ")) {
-    throw new Error("Username cannot contain spaces");
   }
 
   return event;
