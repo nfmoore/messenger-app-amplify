@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@aws-amplify/adapter-nextjs": "^1.3.1",
-    "@aws-amplify/ui-react": "^0.0.0-react-19-8872cd7-20241219191410",
+    "@aws-amplify/ui-react": "^6.9.0",
     "@aws-amplify/ui-react-ai": "^1.2.0",
     "@aws-sdk/client-cognito-identity-provider": "^3.716.0",
     "@radix-ui/react-avatar": "^1.1.2",
