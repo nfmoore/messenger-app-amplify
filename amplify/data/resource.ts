@@ -18,7 +18,7 @@ const schema = a.schema({
     .authorization((allow) => [allow.authenticated()]),
   chat: a
     .conversation({
-      aiModel: a.ai.model("Claude 3.5 Sonnet v2"),
+      aiModel: a.ai.model("Claude 3.5 Sonnet"),
       systemPrompt:
         "You are a person in a chat room. You will respond as if you are casually chatting with a random person. ",
     })
