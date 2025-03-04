@@ -6,6 +6,7 @@ import {
   CfnApi,
   CfnChannelNamespace,
 } from "aws-cdk-lib/aws-appsync";
+import { Policy, PolicyStatement } from "aws-cdk-lib/aws-iam";
 
 const backend = defineBackend({
   auth,
@@ -36,6 +37,22 @@ const cfnEventAPI = new CfnApi(customResource, "EventApi", {
     defaultSubscribeAuthModes: [{ authType: AuthorizationType.USER_POOL }],
   },
 });
+
+// attach a policy to the authenticated user role in our User Pool to grant access to the Event API:
+backend.auth.resources.authenticatedUserIamRole.attachInlinePolicy(
+  new Policy(customResource, "AppSyncEventPolicy", {
+    statements: [
+      new PolicyStatement({
+        actions: [
+          "appsync:EventConnect",
+          "appsync:EventSubscribe",
+          "appsync:EventPublish",
+        ],
+        resources: [`${cfnEventAPI.attrApiArn}/*`, `${cfnEventAPI.attrApiArn}`],
+      }),
+    ],
+  })
+);
 
 new CfnChannelNamespace(customResource, "cfnEventAPINamespace", {
   apiId: cfnEventAPI.attrApiId,
