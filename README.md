@@ -1,39 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Example application that uses AWS Amplify Gen 2 and AWS AppSync Events
 
-## Chat Messenger App
+This example uses Next.js 15 with server actions to create two different types of chat rooms. The first is powered by Amplify AI kit, and allows users to chat with an AI users. The other allows multiple users to sign in and chat with each other. The app uses AWS Amplify Gen 2 and uses various AWS services.
 
-First, run the development server:
+This app has the following features:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Amplify Gen 2
+- Next.js 15
+- shadcn/ui
+- Tailwind
+- Amazon Cognito
+- AWS AppSync Events
+- AWS AppSync
+- AWS Amplify AI kit
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js 18+ installed
+- AWS account that has been set up for [AWS Amplify local setup](https://docs.amplify.aws/react/start/account-setup/) and has enabled access to the Claude 3.5 sonnet model in Amazon Bedrock.
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the repository
+2. Install the dependencies with your favorite Javscript package manager. For example, `npm install`
+3. Run `npx ampx sandbox` to spin up a sandbox cloud backend
+4. Run `npm run dev` to start up the Next.js React app locally.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## AWS Amplify Hosting
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Security
-
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
-
-## License
-
-This library is licensed under the MIT-0 License. See the LICENSE file.
-
+After testing locally you can run it in production on Amplify Hosting using this [guide](https://docs.aws.amazon.com/amplify/latest/userguide/getting-started-next.html).
