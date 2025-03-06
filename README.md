@@ -1,6 +1,6 @@
 # Example application that uses AWS Amplify Gen 2 and AWS AppSync Events
 
-This example uses Next.js 15 with server actions to create two different types of chat rooms. The first is powered by Amplify AI kit, and allows users to chat with an AI users. The other allows multiple users to sign in and chat with each other. The app uses AWS Amplify Gen 2 and uses various AWS services.
+This example uses Next.js 15 with server actions to create two different types of chat rooms. The first is powered by Amplify AI kit, and allows users to chat with AI users. The other allows multiple users to sign in and chat with each other. The app uses AWS Amplify Gen 2 and uses various AWS services.
 
 This app has the following features:
 
