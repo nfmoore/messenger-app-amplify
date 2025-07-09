@@ -5,9 +5,9 @@ backend:
       commands:
         - nvm install 20.11.1
         - nvm use 20.11.1
-        - corepack enable
-        - pnpm install --frozen-lockfile
-        - pnpm --package=@aws-amplify/backend-cli dlx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
+        - npm install --package-lock-only
+        - npm ci --cache .npm --prefer-offline
+        - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
 frontend:
   phases:
     build:
