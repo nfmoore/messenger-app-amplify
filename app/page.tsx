@@ -1,9 +1,19 @@
-import MessengerApp from "@/components/MessengerApp";
+"use client";
 
-export default async function Home() {
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+export default function Home() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Redirect to dashboard
+    router.push("/dashboard");
+  }, [router]);
+
   return (
-    <main className="flex min-h-screen items-center justify-center bg-gradient-to-b from-blue-400 via-blue-500 to-purple-600 p-4">
-      <MessengerApp />
-    </main>
+    <div className="flex min-h-screen items-center justify-center">
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
+    </div>
   );
 }
