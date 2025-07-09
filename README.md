@@ -23,9 +23,9 @@ This app has the following features:
 ### Installation
 
 1. Clone the repository
-2. Install the dependencies with your favorite Javscript package manager. For example, `npm install`
-3. Run `npx ampx sandbox` to spin up a sandbox cloud backend
-4. Run `npm run dev` to start up the Next.js React app locally.
+2. Install the dependencies with your favorite Javscript package manager. For example, `pnpm install`
+3. Run `pnpm sandbox` to spin up a sandbox cloud backend
+4. Run `pnpm dev` to start up the Next.js React app locally.
 
 ## AWS Amplify Hosting
 

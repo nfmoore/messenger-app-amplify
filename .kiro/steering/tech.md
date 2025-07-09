@@ -28,15 +28,15 @@
 
 ### Development
 ```bash
-npm run dev          # Start development server with Turbopack
-npx ampx sandbox     # Start Amplify sandbox backend
+pnpm dev             # Start development server with Turbopack
+pnpm sandbox         # Start Amplify sandbox backend
 ```
 
 ### Build & Deploy
 ```bash
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run ESLint
+pnpm build           # Build for production
+pnpm start           # Start production server
+pnpm lint            # Run ESLint
 ```
 
 ### Prerequisites
