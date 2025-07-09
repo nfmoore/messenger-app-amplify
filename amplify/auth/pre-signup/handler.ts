@@ -2,18 +2,18 @@ import type { PreSignUpTriggerHandler } from "aws-lambda";
 import {
   CognitoIdentityProviderClient,
   ListUsersCommand,
-  ListUsersCommandInput,
+  type ListUsersCommandInput,
 } from "@aws-sdk/client-cognito-identity-provider";
 
 export const handler: PreSignUpTriggerHandler = async (event) => {
   const cognitoClient = new CognitoIdentityProviderClient({});
 
-  if (!event.request.userAttributes["preferred_username"]) {
+  if (!event.request.userAttributes.preferred_username) {
     throw new Error("Username is required");
   }
 
   const lowercaseUsername =
-    event.request.userAttributes["preferred_username"].toLowerCase();
+    event.request.userAttributes.preferred_username.toLowerCase();
 
   if (lowercaseUsername.includes(" ")) {
     throw new Error("Username cannot contain spaces");
