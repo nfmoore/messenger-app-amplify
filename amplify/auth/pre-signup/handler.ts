@@ -1,11 +1,12 @@
-import type { PreSignUpTriggerHandler } from "aws-lambda";
+import type { PreSignUpTriggerHandler, PreSignUpTriggerEvent } from "aws-lambda";
 import {
   CognitoIdentityProviderClient,
   ListUsersCommand,
   type ListUsersCommandInput,
+  type User,
 } from "@aws-sdk/client-cognito-identity-provider";
 
-export const handler: PreSignUpTriggerHandler = async (event) => {
+export const handler: PreSignUpTriggerHandler = async (event: PreSignUpTriggerEvent) => {
   const cognitoClient = new CognitoIdentityProviderClient({});
 
   if (!event.request.userAttributes.preferred_username) {
@@ -26,7 +27,7 @@ export const handler: PreSignUpTriggerHandler = async (event) => {
   const command = new ListUsersCommand(params);
   const response = await cognitoClient.send(command);
 
-  const matchingUser = response.Users?.find((user) => {
+  const matchingUser = response.Users?.find((user: User) => {
     const preferredUsername = user.Attributes?.find(
       (attr) => attr.Name === "preferred_username"
     )?.Value;
